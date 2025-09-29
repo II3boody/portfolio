@@ -17,48 +17,64 @@
 </head>
 
 <body>
-    <div id="Toast">Message Have been sent ✔️</div>
+
+    <!-- toast -->
+
+    <div id="Toast" class="transition">Message Have been sent ✔️</div>
 
     <!-- Nav ### -->
-    <nav class="topnav bg-main" id="myTopnav">
+    <nav class="topnav section-bg" id="myTopnav" role="navigation">
 
         <div class="container d-flex align-center align-items-center justify-content-between">
 
             <div class="logo">
-                <a href="" class="d-block"><img src="./imgs/ak-logo.png" alt="Logo"></a>
+                <a href="" class="d-block"><img id="logo" class="w-100" srcset="imgs/ak-logo-black.png" alt="Logo"></a>
             </div>
 
             <div id="myLinks" class="nav-links gap-4">
-                <a href="#about" class="text-decoration-none c-black d-block">About Me</a>
-                <a href="#services" class="text-decoration-none d-block c-black">Services</a>
-                <a href="#contact" class="text-decoration-none d-block c-black">Contact</a>
-                <a href="#footer" class="text-decoration-none d-block c-black">Book A Call <i
+                <a href="#about"
+                    class="nav-link fs-5 text-decoration-none txt-c d-block transition position-relative">About Me</a>
+                <a href="#services"
+                    class="nav-link fs-5 text-decoration-none d-block txt-c transition position-relative">Services</a>
+                <a href="#contact"
+                    class="nav-link fs-5 text-decoration-none d-block txt-c transition position-relative">Contact</a>
+                <a href="#footer"
+                    class="nav-link fs-5 text-decoration-none d-block txt-c transition position-relative">Book A Call <i
                         class="fa-solid fa-up-right-from-square"></i></a>
             </div>
 
             <div id="myNavLinks"
-                class="nav-links gap-4 w-100 position-absolute align-items-center flex-column bg-main py-4">
-                <a href="#about" class="text-decoration-none c-black">About Me</a>
-                <a href="#services" class="text-decoration-none c-black">Services</a>
-                <a href="#contact" class="text-decoration-none c-black">Contact</a>
-                <a href="#footer" class="text-decoration-none c-black">Book A Call
+                class="nav-links gap-4 w-100 position-absolute align-items-center flex-column section-bg py-4">
+                <a href="#about" class="nav-link fs-4 text-decoration-none txt-c transition position-relative"
+                    onclick="toggleNav()">About Me</a>
+                <a href="#services" class="nav-link fs-4 text-decoration-none txt-c transition position-relative"
+                    onclick="toggleNav()">Services</a>
+                <a href="#contact" class="nav-link fs-4 text-decoration-none txt-c transition position-relative"
+                    onclick="toggleNav()">Contact</a>
+                <a href="#footer" class="nav-link fs-4 text-decoration-none txt-c transition position-relative"
+                    onclick="toggleNav()">Book A Call
                     <i class="fa-solid fa-up-right-from-square"></i></a>
-                <i class="fa fa-x" aria-hidden="true" onclick="toggleNav()"></i>
+                <div class="txt-c fs-4">
+                    <i class="fa fa-x" aria-hidden="true" onclick="toggleNav()"></i>
+                </div>
             </div>
 
-            <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+            <a href="javascript:void(0);" class="icon fs-4 transition position-relative" onclick="toggleNav()">
                 <i class="fa fa-bars"></i>
             </a>
+
+            <div class="dark-mode rounded-circle d-flex justify-content-center align-items-center pointer transition"><i
+                    class="fa-solid fa-moon"></i></div>
         </div>
     </nav>
 
     <!-- Header ### -->
-    <header>
-        <div class="right-content">
+    <header class="white-bg">
+        <div class="right-content txt-c">
             <p>2025</p>
             <p>Product designer</p>
         </div>
-        <div class="container">
+        <div class="container txt-c">
             <div class="info">
                 <h2>15</h2>
                 <p> Project Completed</p>
@@ -81,83 +97,74 @@
                 </a>
             </div>
         </div>
-        <img src="./imgs/Abd-Elrahman.png" alt="">
+        <img srcset="./imgs/Abd-Elrahman.png" alt="">
     </header>
 
     <!-- About ### -->
-    <section id="about">
-
+    <section id="about" class="section-bg">
         <div class="container d-flex position-relative justify-content-between flex-wrap">
-            <div class="left  flex-column align-items-star">
-                <h2>About Me</h2>
-                <p>I'm Specialize in turning complex problems into Elegant solutuions. My approach blends creativity
+            <div class="left flex-column align-items-star">
+                <h2 class="txt-c">About Me</h2>
+                <p class="p-c">I'm Specialize in turning complex problems into Elegant solutuions. My approach blends
+                    creativity
                     with strategic thinking to deliver designs that not only look great but work seamlessly.Ready to
                     start your next project?</p>
-                <img src="./imgs/arrow.png" alt="">
+                <img srcset="imgs/arrow.png" class="arrow">
             </div>
-            <div class="mid f-column gap-10 bg-white p-3">
-                <h2 class="h2 fs-1 my-2">120%</h2>
-                <p class="my-2">Average increase in client engagement in the first 6 months</p>
-                <img src="./imgs/elbod.png" alt="" class="rounded-3">
+            <div class="mid f-column gap-10 white-bg p-3">
+                <h2 class="h2 fs-1 my-2 txt-c">120%</h2>
+                <p class="my-2 p-c">Average increase in client engagement in the first 6 months</p>
+                <img srcset="imgs/elbod.png" class="rounded-3" alt="Picutre of Abd-Elrahman">
             </div>
             <div class="right d-flex flex-column justify-content-between align-items-center gap-4">
-                <img src="imgs/about.png" alt="">
+                <img srcset="imgs/about.png" alt="">
                 <div class="info">
-                    <p> With 1+ years of exprience, I specialize in creating intuive </p>
-                    <p>I thrive on working closely with clients, blending creativity with strategy to bring thier vision
+                    <p class="p-c"> With 1+ years of exprience, I specialize in creating intuive </p>
+                    <p class="p-c">I thrive on working closely with clients, blending creativity with strategy to bring
+                        thier vision
                         to life through thoughful, impactful design solutuions</p>
                 </div>
             </div>
         </div>
         <div class="container my-4">
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide w-100"><a href="https://ii3boody.github.io/Elzero-Fourth-Design"
-                            class="block w-100"><img src="imgs/wrap1.png" alt=""></a></div>
-
-                    <div class="swiper-slide w-100"><a href="https://ii3boody.github.io/Elzero-Templete-V3/"
-                            class="block w-100"><img src="imgs/wrap2.png" alt=""></a></div>
-
-                    <div class="swiper-slide w-100"><a href="https://ii3boody.github.io/Kasper-Template-challange/"
-                            class="block w-100"><img src="imgs/wrap3.png" alt=""></a></div>
-                    <div class="swiper-slide w-100 soon"><img src="imgs/wrap4.png" alt="" class="blur"></div>
-                    <div class="swiper-slide w-100 soon"><img src="imgs/wrap5.png" alt="" class="blur"></div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-wrapper"></div>
+                <div class="swiper-button-next transition"></div>
+                <div class="swiper-button-prev transition"></div>
+                <div class="swiper-pagination transition"></div>
             </div>
         </div>
         <div class="spikes position-relative"></div>
     </section>
 
     <!-- Skilss ### -->
-    <section id="skills" class="relative">
+    <section id="skills" class="relative white-bg">
         <h2 class="main-title">My Skills</h2>
         <div class="container d-flex justify-content-between align-items-center gap-4">
-            <img src="imgs/skills.png" alt="">
+            <img srcset="imgs/skills.png" alt="">
             <div class="skills">
-                <div class="skill">
+                <div class="skill txt-c">
                     <h3>HTML<span>80%</span></h3>
                     <div class="progress">
-                        <span style="width: 80%;"></span>
+                        <span style="width: 80%;" class="transition"></span>
                     </div>
                 </div>
-                <div class="skill">
+                <div class="skill txt-c">
                     <h3>css<span>85%</span></h3>
                     <div class="progress">
-                        <span style="width: 85%;"></span>
+                        <span style="width: 85%;" class="transition"></span>
                     </div>
                 </div>
-                <div class="skill">
+                <div class="skill txt-c">
                     <h3>JavaScript<span>70%</span></h3>
                     <div class="progress">
-                        <span style="width: 70%;"></span>
+                        <span style="width: 70%;" class="transition"></span>
                     </div>
                 </div>
-                <div class="skill">
+                <div class="skill txt-c">
                     <h3>React<span>50%</span></h3>
                     <div class="progress">
-                        <span style="width: 50%;"></span>
+                        <span style="width: 50%;" class="transition"></span>
                     </div>
                 </div>
             </div>
@@ -165,32 +172,35 @@
     </section>
 
     <!-- Services ### -->
-    <section id="services" class="bg-main position-relative">
+    <section id="services" class="section-bg position-relative">
         <h2 class="main-title">Services</h2>
         <div class="container d-grid gap-4">
-            <div class="service bg-white d-flex flex-column align-items-center text-center mx-auto">
-                <i class="fa-solid fa-reply-all"></i>
-                <h3>Responsive</h3>
-                <p>I ensure your website looks great on all devices, including desktops, tablets, and smartphones, using
+            <div class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition">
+                <i class="fa-solid fa-reply-all transition"></i>
+                <h3 class="txt-c">Responsive</h3>
+                <p class="p-c">I ensure your website looks great on all devices, including desktops, tablets, and
+                    smartphones, using
                     modern web design practices like mobile-first development.</p>
             </div>
-            <div class="service bg-white d-flex flex-column align-items-center text-center mx-auto">
-                <i class="fa-solid fa-code"></i>
-                <h3>Developement</h3>
-                <p>I build fully customized, responsive websites tailored to your business needs using HTML, CSS,
+            <div class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition">
+                <i class="fa-solid fa-code transition"></i>
+                <h3 class="txt-c">Developement</h3>
+                <p class="p-c">I build fully customized, responsive websites tailored to your business needs using HTML,
+                    CSS,
                     JavaScript, and Bootstrap. From landing pages to multi-page.</p>
             </div>
-            <div class="service bg-white d-flex flex-column align-items-center text-center mx-auto">
-                <i class="fa-regular fa-hard-drive"></i>
-                <h3>Optimization</h3>
-                <p>I enhance website performance and loading speed by optimizing the front-end code, images, and assets
+            <div class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition">
+                <i class="fa-regular fa-hard-drive transition"></i>
+                <h3 class="txt-c">Optimization</h3>
+                <p class="p-c">I enhance website performance and loading speed by optimizing the front-end code, images,
+                    and assets
                     to ensure a fast and smooth user experience.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact ### -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section white-bg">
         <div class="container">
             <h2 class="main-title">Contact Me</h2>
             <p>Have a project in mind or want to collaborate? Let's chat!</p>
@@ -210,13 +220,13 @@
                 <textarea id="message" name="message" rows="6" required placeholder="Your message"
                     class="form-control resize-none"></textarea>
 
-                <button type="submit">Send Message</button>
+                <button type="submit" class="transition">Send Message</button>
             </form>
 
 
             <div class="contact-info">
                 <p><i class="fa-solid fa-phone"></i> +20‑102‑617‑2996</p>
-                <p><i class="fa-solid fa-envelope"></i> iiaboody101@gmail.com</p>
+                <p><i class="fa-solid fa-envelope"></i> abdelrahmankhalidakm@gmail.com</p>
             </div>
         </div>
     </section>
@@ -225,32 +235,38 @@
     <footer id="footer" class="footer-section">
         <div class="container footer-container">
             <div class="footer-brand">
-                <a href="" class="d-block">
-                    <img src="./imgs/ak-logo.png" alt="My Logo"></a>
+                <a href="" class="d-block transition">
+                    <img srcset="./imgs/ak-logo-white.png" alt="Abd-Elrahman Logo"></a>
                 <p>© 2025 Abd‑Elrahman. All rights reserved.</p>
             </div>
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" class="transition">About Me</a></li>
+                    <li><a href="#services" class="transition">Services</a></li>
+                    <li><a href="#contact" class="transition">Contact</a></li>
                 </ul>
             </div>
 
             <div class="footer-contact">
                 <h4>Contact</h4>
-                <p><i class="fa-solid fa-envelope"></i> iiaboody101@gmail.com</p>
+                <p>
+                    <a class="d-inline-block transition" href="mailto:abdelrahmankhalidakm@gmail.com"><i
+                            class="fa-solid fa-envelope"></i>
+                        abdelrahmankhalidakm@gmail.com</a>
+                </p>
                 <p><i class="fa-solid fa-phone"></i> +20 102 617 2996</p>
             </div>
 
             <div class="footer-socials">
                 <h4>Follow Me</h4>
-                <a href="https://www.instagram.com/07pvp_" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/akm-abdelra7man/" target="_blank"><i
+                <a href="https://www.instagram.com/07pvp_" target="_blank" class="transition"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/akm-abdelra7man/" target="_blank" class="transition"><i
                         class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/II3boody" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://github.com/II3boody" target="_blank" class="transition"><i
+                        class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </footer>
@@ -260,6 +276,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <noscript>يرجى تفعيل JavaScript لعرض المشاريع.</noscript>
 
 </body>
 
