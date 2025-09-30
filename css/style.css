@@ -4,42 +4,80 @@
     margin: 0;
 }
 
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
 :root {
+    /* Colors - Light Mode */
     --main-color: #f3f3f3;
-    --main-bg: rgb(201, 201, 201);
+    --main-bg: #c9c9c9;
     --darker-main-color: #bbbbbb;
     --bg-white: #ffffff;
-    --black-hover: rgb(110, 110, 110);
-    --active-bg: #8181816b;
+    --black-hover: #6e6e6e;
+    --active-bg: rgba(129, 129, 129, 0.42);
     --green-toast: #4BB543;
-    --overlay: #0000008a;
+    --overlay: rgba(0, 0, 0, 0.54);
     --text-color: #000;
     --label-txt: #333;
-    --section-p: #666;
+    --section-p: #555;
     --p-c: #212529;
     --shadow: rgba(0, 0, 0, 0.25);
-    --nav-shadow: rgb(0, 0, 0, 0.2);
-    --fastAndSmooth: 0.3s ease;
+    --nav-shadow: rgba(0, 0, 0, 0.2);
+
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+
+
+    /* font-sizes */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.25rem;
+    --font-size-lg: 2rem;
+    --font-size-xl: 3rem;
 }
 
 body.dark {
     --main-color: #0c0c0c;
     --main-bg: #363636;
     --darker-main-color: #444444;
-    --bg-white: #000000;
+    --bg-white: #1a1a1a;
     --black-hover: #919191;
-    --active-bg: #7e7e7e6b;
-    --overlay: #ffffff8a;
+    --active-bg: rgba(126, 126, 126, 0.42);
+    --overlay: rgba(255, 255, 255, 0.54);
     --text-color: #ffffff;
     --label-txt: #cccccc;
-    --section-p: hsl(0, 0%, 80%);
+    --section-p: #afafaf;
     --p-c: #dedad6;
     --shadow: rgba(255, 255, 255, 0.25);
     --nav-shadow: rgba(0, 0, 0, 0.829);
 }
 
 .transition {
-    transition: all var(--fastAndSmooth);
+    transition: all var(--transition-normal);
+    -webkit-transition: all var(--transition-normal);
+    -moz-transition: all var(--transition-normal);
+    -ms-transition: all var(--transition-normal);
+    -o-transition: all var(--transition-normal);
 }
 
 html {
@@ -49,6 +87,9 @@ html {
 body {
     font-family: "Archivo", sans-serif;
     color: var(--bg-white);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+    line-height: 1.6;
 }
 
 ul {
@@ -61,6 +102,15 @@ a {
     display: block;
     text-decoration: none;
 }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--main-bg);
+    outline-offset: 2px;
+}
+
 
 .txt-c {
     color: var(--text-color);
@@ -79,16 +129,21 @@ section {
 }
 
 .main-title {
-    font-size: 60px;
     width: fit-content;
     margin: 0 auto 100px;
+    font-size: clamp(2.5rem, 5vw, 6rem);
     color: var(--p-c);
     border-bottom: 3px solid var(--main-bg);
+    line-height: 1.1;
     border-radius: 5px;
-    animation: fadeInUp 1s ease-in-out;
-    animation-timeline: view();
-    animation-range: 0 cover 40%;
 }
+
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+
 
 .section-bg {
     background-color: var(--main-color);
@@ -269,12 +324,8 @@ section {
     align-items: center;
     z-index: 11;
     opacity: 0;
-    transition: opacity var(--fastAndSmooth);
+    transition: opacity var(--transition-fast);
     cursor: pointer;
-    -webkit-transition: opacity var(--fastAndSmooth);
-    -moz-transition: opacity var(--fastAndSmooth);
-    -ms-transition: opacity var(--fastAndSmooth);
-    -o-transition: opacity var(--fastAndSmooth);
 }
 
 .overlay.active {
@@ -359,6 +410,7 @@ section {
     width: 100%;
     height: auto;
     max-height: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: top;
     filter: grayscale(1);
@@ -597,6 +649,8 @@ body.dark .popup-content .details .tech {
     color: var(--section-p);
 }
 
+/* global rules */
+
 nav .logo {
     padding: 1rem;
     width: 80px;
@@ -670,6 +724,7 @@ nav .navlinks div:hover::before {
         top: 0;
         left: 0;
         z-index: 9;
+        box-shadow: 0px 2px 10px var(--shadow);
     }
 
     .topnav .icon {
@@ -688,7 +743,7 @@ nav.slidedown {
 }
 
 header {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 96px);
     position: relative;
     overflow: hidden;
 }
@@ -712,17 +767,36 @@ header .right-content::before {
     width: 2px;
     height: 390px;
     background-color: var(--main-bg);
-    left: 60px;
+    left: 65px;
     top: 30%;
 }
 
-@media (max-height:780px) {
+@media (max-width:992px) {
+    header .right-content::before {
+        left: 60px;
+    }
+}
+
+@media (max-width:768px) {
+    header .right-content::before {
+        left: 54px;
+    }
+}
+
+@media (max-height:810px) {
     header .right-content::before {
         top: 32%;
         height: 275px;
-
     }
 }
+
+@media (min-height:540px) and (max-height:810) {
+    header .right-content::before {
+        top: 50%;
+        height: 275px;
+    }
+}
+
 
 
 header .right-content p:first-child {
@@ -791,16 +865,36 @@ header .scroll a {
 
 header .scroll a .i-animation {
     animation: i-animation 3.5s infinite cubic-bezier(1, 0.01, 0, 1.03);
+    -webkit-animation: i-animation 3.5s infinite cubic-bezier(1, 0.01, 0, 1.03);
 }
 
 header>img {
     position: absolute;
     bottom: -50%;
-    width: 1250px;
+    width: min(1250px, 100%);
     left: 40%;
     transform: translateX(-20%);
     z-index: 1;
     animation: fadeInUp-forHeader 1s ease-in-out;
+}
+
+@media (min-width:540px) and (max-width:1024px) {
+    header>img {
+        bottom: 0%
+    }
+}
+
+@media (max-width: 540px) {
+    header .right-content {
+        display: none;
+    }
+
+    header>img {
+        width: 200%;
+        left: 20%;
+        bottom: -95%;
+        transform: translateX(-20%);
+    }
 }
 
 @media (max-width: 540px) {
@@ -821,21 +915,12 @@ header>img {
         display: none;
     }
 
-    header .right-content::before {
-        display: none;
-    }
-
-    header>img {
-        width: 150%;
-        left: 0;
-        transform: translateX(0);
-        bottom: -20%;
-    }
-
-    header .scroll {
-        margin-top: 20px;
-    }
 }
+
+header .scroll {
+    margin-top: 20px;
+}
+
 
 @media (min-width: 541px) and (max-width: 767px) {
     header {
@@ -855,11 +940,6 @@ header>img {
         font-size: 14px;
     }
 
-    header>img {
-        width: 120%;
-        left: 25%;
-        transform: translateX(-10%);
-    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -874,30 +954,15 @@ header>img {
     header .right-content p {
         font-size: 16px;
     }
-
-    header>img {
-        width: 130%;
-        left: 30%;
-    }
 }
 
 @media (min-width: 1200px) {
     header .main-heading h1 {
         font-size: 12rem;
     }
-
-    header>img {
-        width: 1250px;
-        left: 40%;
-        transform: translateX(-20%);
-    }
 }
 
-@media (max-height:810px) {
-    header>img {
-        bottom: -80%;
-    }
-}
+
 
 #about .container {
     align-items: normal;
@@ -925,16 +990,11 @@ header>img {
     animation: left-moving 3s linear;
     animation-timeline: view();
     animation-range: entry 0 cover 30%;
-    -webkit-animation: left-moving 3s linear;
 }
 
 #about .mid {
     flex-basis: 20%;
     height: fit-content;
-    animation: fadeInUp 1s ease-in-out;
-    animation-timeline: view();
-    animation-range: 0 cover 40%;
-    -webkit-animation: fadeInUp 1s ease-in-out;
 }
 
 #about .right {
@@ -942,7 +1002,6 @@ header>img {
     animation: right-moving 1s ease-in-out;
     animation-timeline: view();
     animation-range: 0 cover 40%;
-    -webkit-animation: right-moving 1s ease-in-out;
 }
 
 #about img {
@@ -957,7 +1016,7 @@ header>img {
 
 #about .right p {
     position: relative;
-    margin-left: 3.5rem;
+    margin-inline-start: 3.5rem;
     margin-bottom: 2rem;
 }
 
@@ -966,7 +1025,8 @@ header>img {
     font-family: 'Font Awesome\ 5 Free';
     font-weight: bold;
     position: absolute;
-    left: -65px;
+    left: auto;
+    inset-inline-start: -65px;
     top: 0;
     background-color: var(--text-color);
     color: var(--bg-white);
@@ -1010,6 +1070,7 @@ header>img {
     }
 }
 
+
 #skills img {
     filter: grayscale(1);
     animation: left-moving 1s ease-in-out;
@@ -1024,6 +1085,13 @@ header>img {
     }
 }
 
+#skills img {
+    filter: grayscale(1);
+    animation: left-moving 1s ease-in-out;
+    animation-timeline: view();
+    animation-range: 0 cover 40%;
+}
+
 .skills {
     flex-grow: 1;
     animation: right-moving 1s ease-in-out;
@@ -1035,29 +1103,53 @@ header>img {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
 }
 
 #skills .skill h3 span {
-    font-size: 12px;
+    font-size: 13px;
     border: 1px solid var(--active-bg);
-    padding: 3px 5px;
-    border-radius: 4px;
+    padding: 4px 10px;
+    border-radius: 20px;
     color: var(--text-color);
+    background: var(--main-color);
+    font-weight: 600;
 }
 
 #skills .skill .progress {
-    height: 30px;
+    height: 35px;
     background-color: var(--main-color);
     position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #skills .skill .progress span {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: var(--black-hover);
+    background: linear-gradient(90deg, var(--black-hover), var(--main-bg));
     height: 100%;
+    transition: width 1s ease-out;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
 }
+
+/* Mobile Skills */
+@media (max-width: 991px) {
+    #skills img {
+        display: none;
+    }
+}
+
 
 #services::before {
     content: '';
@@ -1078,39 +1170,47 @@ header>img {
 
 #services .container .service {
     color: var(--p-c);
-    animation: fadeInUp 1s ease-in-out;
-    animation-timeline: view();
-    animation-range: 0 cover 40%;
     max-width: 400px;
-    padding: 40px 15px;
-    border: 3px solid var(--bg-white);
+    padding: 3rem 2rem;
+    border: 2px solid var(--bg-white);
     border-radius: 10px;
 }
 
 #services .container .service:hover {
-    box-shadow: 0 24px 50px -12px var(--shadow);
+    border-color: var(--main-bg);
+    box-shadow: 0 20px 40px var(--shadow);
+    transform: translateY(-10px);
 }
 
 #services .container .service:hover i {
-    background-color: var(--label-txt);
-    border-color: var(--main-color);
-    color: var(--main-color);
+    background: linear-gradient(135deg, var(--black-hover), var(--main-bg));
+    color: white;
+    transform: scale(1.05);
 }
 
 #services .container .service i {
-    border: 10px solid var(--bg-white);
+    border: none;
+    background: var(--main-color);
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    font-size: 60px;
+    transition: all var(--transition-normal);
+    margin-bottom: 1.5rem;
+    color: var(--black-hover);
 }
 
 #services .container .service h3 {
-    font-weight: 400;
-    font-size: 40px;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+#services .container .service p {
+    line-height: 1.7;
+    color: var(--section-p);
 }
 
 .contact-section {
@@ -1132,9 +1232,7 @@ header>img {
     color: var(--section-p);
     margin-bottom: 40px;
     font-weight: 400;
-    animation: fadeInUp 1s ease-in-out;
-    animation-timeline: view();
-    animation-range: 0 cover 40%;
+
 }
 
 .contact-form {
@@ -1149,31 +1247,43 @@ header>img {
     font-weight: bold;
     color: var(--label-txt);
     font-weight: 500;
-    animation: fadeInUp 1s ease-in-out;
-    animation-timeline: view();
-    animation-range: 0 cover 40%;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding-block: .75rem;
-    animation: fadeInUp 1s ease-in-out;
-    animation-timeline: view();
-    animation-range: 0 cover 40%;
+    padding: 1rem;
+    border: 2px solid var(--darker-main-color);
+    border-radius: 10px;
+    background-color: var(--bg-white);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
 }
 
 .contact-form button {
     align-self: flex-end;
     background: var(--black-hover);
     color: var(--bg-white);
-    padding: 12px 24px;
+    padding: 1rem 2.5rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact-form button:hover {
     background: var(--label-txt);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form button:hover,
+.contact-form button:focus {
+    background: var(--label-txt);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .contact-info p {
@@ -1263,6 +1373,12 @@ footer a:hover {
     }
 }
 
+.fade-in-up {
+    animation: fadeInUp 1s ease-in-out;
+    animation-timeline: view();
+    animation-range: 0 cover 40%;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1301,7 +1417,7 @@ footer a:hover {
 @keyframes right-moving {
     from {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(50px);
     }
 
     to {
@@ -1414,13 +1530,5 @@ footer a:hover {
 
     #services .container .service {
         max-width: 450px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-
-    header>img {
-        width: 150%;
-        left: 20%;
     }
 }

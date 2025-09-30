@@ -74,7 +74,7 @@
             <p>2025</p>
             <p>Product designer</p>
         </div>
-        <div class="container txt-c">
+        <div class="container position-relative z-2 txt-c">
             <div class="info">
                 <h2>15</h2>
                 <p> Project Completed</p>
@@ -111,7 +111,7 @@
                     start your next project?</p>
                 <img srcset="imgs/arrow.png" class="arrow">
             </div>
-            <div class="mid f-column gap-10 white-bg p-3">
+            <div class="mid f-column gap-10 white-bg p-3 fade-in-up">
                 <h2 class="h2 fs-1 my-2 txt-c">120%</h2>
                 <p class="my-2 p-c">Average increase in client engagement in the first 6 months</p>
                 <img srcset="imgs/elbod.png" class="rounded-3" alt="Picutre of Abd-Elrahman">
@@ -139,29 +139,29 @@
 
     <!-- Skilss ### -->
     <section id="skills" class="relative white-bg">
-        <h2 class="main-title">My Skills</h2>
+        <h2 class="main-title fade-in-up">My Skills</h2>
         <div class="container d-flex justify-content-between align-items-center gap-4">
             <img srcset="imgs/skills.png" alt="">
             <div class="skills">
-                <div class="skill txt-c">
+                <div class="skill my-4 txt-c">
                     <h3>HTML<span>80%</span></h3>
                     <div class="progress">
                         <span style="width: 80%;" class="transition"></span>
                     </div>
                 </div>
-                <div class="skill txt-c">
+                <div class="skill my-4 txt-c">
                     <h3>css<span>85%</span></h3>
                     <div class="progress">
                         <span style="width: 85%;" class="transition"></span>
                     </div>
                 </div>
-                <div class="skill txt-c">
+                <div class="skill my-4 txt-c">
                     <h3>JavaScript<span>70%</span></h3>
                     <div class="progress">
                         <span style="width: 70%;" class="transition"></span>
                     </div>
                 </div>
-                <div class="skill txt-c">
+                <div class="skill my-4 txt-c">
                     <h3>React<span>50%</span></h3>
                     <div class="progress">
                         <span style="width: 50%;" class="transition"></span>
@@ -173,25 +173,28 @@
 
     <!-- Services ### -->
     <section id="services" class="section-bg position-relative">
-        <h2 class="main-title">Services</h2>
+        <h2 class="main-title fade-in-up">Services</h2>
         <div class="container d-grid gap-4">
-            <div class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition">
+            <div
+                class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition fade-in-up">
                 <i class="fa-solid fa-reply-all transition"></i>
-                <h3 class="txt-c">Responsive</h3>
+                <h3 class="txt-c mb-3">Responsive</h3>
                 <p class="p-c">I ensure your website looks great on all devices, including desktops, tablets, and
                     smartphones, using
                     modern web design practices like mobile-first development.</p>
             </div>
-            <div class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition">
+            <div
+                class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition fade-in-up">
                 <i class="fa-solid fa-code transition"></i>
-                <h3 class="txt-c">Developement</h3>
+                <h3 class="txt-c mb-3">Developement</h3>
                 <p class="p-c">I build fully customized, responsive websites tailored to your business needs using HTML,
                     CSS,
                     JavaScript, and Bootstrap. From landing pages to multi-page.</p>
             </div>
-            <div class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition">
+            <div
+                class="service white-bg d-flex flex-column align-items-center text-center mx-auto transition fade-in-up">
                 <i class="fa-regular fa-hard-drive transition"></i>
-                <h3 class="txt-c">Optimization</h3>
+                <h3 class="txt-c mb-3">Optimization</h3>
                 <p class="p-c">I enhance website performance and loading speed by optimizing the front-end code, images,
                     and assets
                     to ensure a fast and smooth user experience.</p>
@@ -200,25 +203,27 @@
     </section>
 
     <!-- Contact ### -->
-    <section id="contact" class="contact-section white-bg">
+    <section id="contact" class="contact-section section-bg">
         <div class="container">
-            <h2 class="main-title">Contact Me</h2>
-            <p>Have a project in mind or want to collaborate? Let's chat!</p>
+            <h2 class="main-title fade-in-up">Contact Me</h2>
+            <p class="fade-in-up">Have a project in mind or want to collaborate? Let's chat!</p>
 
             <form
                 action="https://script.google.com/macros/s/AKfycbwnpe3ttaF4KsTZlswcTtQl5fBulKmqFUb2AfZTHoYlWJeq3oVG70uMHg5s5ZgyUhib/exec"
-                method="post" enctype="text/plain" class="contact-form">
+                method="post" enctype="text/plain" class="contact-form transition">
 
 
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your name" class="form-control">
+                <label for="name" class="fade-in-up">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name"
+                    class="form-control fade-in-up transition">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Your email" class="form-control">
+                <label for="email" class="fade-in-up">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Your email"
+                    class="form-control fade-in-up transition">
 
-                <label for="message">Message</label>
+                <label for="message" class="fade-in-up">Message</label>
                 <textarea id="message" name="message" rows="6" required placeholder="Your message"
-                    class="form-control resize-none"></textarea>
+                    class="form-control resize-none fade-in-up transition"></textarea>
 
                 <button type="submit" class="transition">Send Message</button>
             </form>
