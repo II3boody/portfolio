@@ -161,15 +161,15 @@ section {
     content: '';
     position: absolute;
     right: 0;
-    left: -0%;
+    left: 0;
     top: 100px;
     z-index: 2;
     display: block;
     height: 30px;
     background-size: 38px 100%;
     background-image: linear-gradient(135deg, var(--main-color) 25%, transparent 25%), linear-gradient(225deg, var(--main-color) 25%, transparent 25%);
-    background-position: 0 0;
-    animation: background-size 5s ease-in-out infinite;
+    animation: spikesMove 2.5s linear infinite;
+    -webkit-animation: spikesMove 2.5s linear infinite;
 }
 
 .open-animation {
@@ -716,6 +716,13 @@ header .right-content::before {
     top: 30%;
 }
 
+@media (max-height:780px) {
+    header .right-content::before {
+        top: 32%;
+        height: 275px;
+
+    }
+}
 
 
 header .right-content p:first-child {
@@ -727,11 +734,16 @@ header .right-content p:last-child {
     top: 20%;
 }
 
-@media (max-height:810px) {
-    header .right-content::before {
-        top: 32%;
-        height: 275px;
 
+@media (min-width:992px) and (max-width:1100px) {
+    header .right-content {
+        display: none;
+    }
+}
+
+@media (min-width:768px) and (max-width:834px) {
+    header .right-content {
+        display: none;
     }
 }
 
@@ -913,6 +925,7 @@ header>img {
     animation: left-moving 3s linear;
     animation-timeline: view();
     animation-range: entry 0 cover 30%;
+    -webkit-animation: left-moving 3s linear;
 }
 
 #about .mid {
@@ -921,6 +934,7 @@ header>img {
     animation: fadeInUp 1s ease-in-out;
     animation-timeline: view();
     animation-range: 0 cover 40%;
+    -webkit-animation: fadeInUp 1s ease-in-out;
 }
 
 #about .right {
@@ -928,6 +942,7 @@ header>img {
     animation: right-moving 1s ease-in-out;
     animation-timeline: view();
     animation-range: 0 cover 40%;
+    -webkit-animation: right-moving 1s ease-in-out;
 }
 
 #about img {
@@ -963,6 +978,10 @@ header>img {
     font-size: 18px;
     border-radius: 50%;
     transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
 }
 
 #about .right p:hover::before {
@@ -970,11 +989,33 @@ header>img {
     color: var(--main-color);
 }
 
+@media (min-width:768px) and (max-width:1200px) {
+    #about .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #about .left,
+    #about .mid,
+    #about .right {
+        flex-basis: 45%;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media (max-width:768px) {
+    #about .container {
+        flex-direction: column;
+    }
+}
+
 #skills img {
     filter: grayscale(1);
     animation: left-moving 1s ease-in-out;
     animation-timeline: view();
     animation-range: 0 cover 40%;
+    -webkit-filter: grayscale(1);
 }
 
 @media (max-width: 991px) {
@@ -1248,7 +1289,8 @@ footer a:hover {
 
 @keyframes left-moving {
     from {
-        transform: translateX(-500px);
+        opacity: 0;
+        transform: translateX(-100px);
     }
 
     to {
@@ -1259,7 +1301,7 @@ footer a:hover {
 @keyframes right-moving {
     from {
         opacity: 0;
-        transform: translateX(300px);
+        transform: translateX(100px);
     }
 
     to {
@@ -1288,15 +1330,13 @@ footer a:hover {
     }
 }
 
-@keyframes background-size {
-
-    0%,
-    100% {
-        background-size: 38px 100%;
+@keyframes spikesMove {
+    0% {
+        background-position: 0 0;
     }
 
-    50% {
-        background-size: 60px 100%;
+    100% {
+        background-position: 76px 0;
     }
 }
 
@@ -1378,17 +1418,6 @@ footer a:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    #about .container {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    #about .left,
-    #about .mid,
-    #about .right {
-        flex-basis: 45%;
-        margin-bottom: 20px;
-    }
 
     header>img {
         width: 150%;
