@@ -897,6 +897,12 @@ header>img {
     }
 }
 
+@media (min-width:412px) {
+    header>img {
+        bottom: -26%
+    }
+}
+
 @media (max-width: 540px) {
     header {
         height: calc(80vh - 50px);
