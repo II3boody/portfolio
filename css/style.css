@@ -897,9 +897,21 @@ header>img {
     }
 }
 
-@media (min-width:412px) {
+@media (min-width:312px) and (max-width:539px) {
     header>img {
         bottom: -26%
+    }
+}
+
+@media (max-width:375px) {
+    header>img {
+        bottom: -45%;
+    }
+}
+
+@media (min-height:600px) and (max-height:739px) {
+    header>img {
+        bottom: -90%;
     }
 }
 
