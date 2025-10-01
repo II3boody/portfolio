@@ -1314,9 +1314,9 @@ header .scroll {
 }
 
 .footer-section {
-    background: #111;
-    color: #ddd;
-    padding: 40px 0;
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    color: #e0e0e0;
+    padding: 3rem 0 2rem;
     font-family: 'Archivo', sans-serif;
     animation: bottom-to-up 1s ease-in-out;
     animation-timeline: view();
