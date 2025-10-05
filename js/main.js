@@ -4,28 +4,28 @@ const projects = [
         description: "A clean and modern dashboard interface built to manage settings, projects, users, and statistics. It features a responsive layout, informative panels, navigation menu, and widgets to visualize data clearly and interactively.",
         tech: ["HTML", "CSS"],
         link: "https://ii3boody.github.io/Elzero-Fourth-Design/",
-        img: "imgs/wrap1.png",
+        img: "imgs/wrap1.webp",
     },
     {
         name: "Elzero Template V3",
         description: "A multi-section marketing & portfolio template built to display articles, features, gallery, team members, services, and more. It offers responsive layouts, modular sections, and modern UI components to create a complete website framework.",
         tech: ["HTML", "CSS"],
         link: "https://ii3boody.github.io/Elzero-Templete-V3/",
-        img: "imgs/wrap2.png",
+        img: "imgs/wrap2.webp",
     },
     {
         name: "Kasper Template Challenge",
         description: "A creative multi-section template showcasing services, portfolio, team, pricing, and contact sections with modern and clean design. Responsive layout, visual effects, and modular components that adapt to different screen sizes.",
         tech: ["HTML", "CSS"],
         link: "https://ii3boody.github.io/Kasper-Template-challange/",
-        img: "imgs/wrap3.png"
+        img: "imgs/wrap3.webp"
     },
     {
         name: "Bealthy life style (In Progress)",
         description: "Bealthy for Healthy LifeA comprehensive health and fitness platform designed to promote a healthy lifestyle through a weekly home workout plan and a tailored diet plan. The project features a bilingual (Arabic and English) interface with detailed exercise routines, including images and instructional videos for each workout. It also includes a practical diet plan optimized for weight gain and muscle building, with portion sizes based on local dietary habits (e.g., using 'baladi bread' as a measure). The platform is responsive, user-friendly, and includes options to save or print plans as PDFs, making it accessible for users aiming to improve their fitness and nutrition at home.",
         tech: ["HTML", "CSS", "JavaScript"],
         link: "",
-        img: "imgs/wrap4.png",
+        img: "imgs/wrap4.webp",
         soon: true
     },
     {
@@ -33,7 +33,7 @@ const projects = [
         description: "A restaurant & cafe concept currently under development. This project aims to offer menu displays, categories (sandwiches, meals, desserts, juices), promotional sections, and customer reviews. The design emphasizes appetizing visuals, clean layout, and a modern feel — stay tuned for more!",
         tech: ["HTML", "CSS", "JavaScript"],
         link: "",
-        img: "imgs/wrap5.png",
+        img: "imgs/wrap5.webp",
         soon: true
     }
 ];
@@ -288,12 +288,12 @@ toggleDarkMode.addEventListener("click", function () {
 
 function DarkMode() {
     if (document.body.classList.contains("dark")) {
-        logo.srcset = "imgs/ak-logo-white.png";
-        arrow.srcset = "imgs/arrow-inverted.png";
+        logo.srcset = "imgs/ak-logo-white.webp";
+        arrow.srcset = "imgs/arrow-inverted.webp";
         localStorage.setItem("theme", "dark");
     } else {
-        logo.srcset = "imgs/ak-logo-black.png";
-        arrow.srcset = "imgs/arrow.png";
+        logo.srcset = "imgs/ak-logo-black.webp";
+        arrow.srcset = "imgs/arrow.webp";
         localStorage.setItem("theme", "light");
     }
 }
