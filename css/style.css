@@ -1240,6 +1240,7 @@ header .scroll {
     align-items: center;
     margin-bottom: 0.75rem;
     font-size: 1.1rem;
+    text-transform: uppercase;
 }
 
 #skills .skill h3 span {
