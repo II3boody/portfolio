@@ -80,16 +80,16 @@ body.dark {
 html {
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
-  transition: var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 body {
   font-family: "Archivo", sans-serif;
   color: var(--bg-white);
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
   font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
   line-height: 1.6;
-  overflow: visible;
+  overflow-x: hidden;
 }
 
 /* Scrollbar */
@@ -582,8 +582,9 @@ img {
   gap: 1.25rem;
   text-align: left;
   max-height: 100%;
-  overflow: hidden;
+  overflow: visible;
   cursor: default;
+  min-width: 0;
 }
 
 .popup-content .details h2 {
@@ -622,11 +623,9 @@ img {
   font-size: 1rem;
   color: var(--section-p);
   font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .popup-content .details .project-link {
@@ -918,24 +917,6 @@ nav .navlinks div:hover::before {
   opacity: 1;
 }
 
-@media (max-width: 767px) {
-  #myLinks {
-    display: none;
-  }
-
-  #myNavLinks {
-    top: 0;
-    left: 0;
-    z-index: 9;
-    box-shadow: 0px 2px 10px var(--shadow);
-  }
-
-  .topnav .icon {
-    display: block;
-    font-size: 2rem !important;
-  }
-}
-
 nav.slidedown {
   position: fixed;
   top: 0;
@@ -943,6 +924,78 @@ nav.slidedown {
   width: 100%;
   animation: slideDown 0.4s forwards;
   z-index: 10;
+}
+
+@media (max-width: 767px) {
+  #myLinks {
+    display: none;
+  }
+
+  nav.topnav, nav.slidedown {
+    position: fixed;
+    top: auto !important;
+    bottom: 20px !important;
+    left: 5%;
+    width: 90%;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: none !important;
+    padding: 0.5rem 1rem !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark nav.topnav, body.dark nav.slidedown {
+    background: rgba(26, 32, 44, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  nav.topnav .container {
+    padding: 0;
+  }
+
+  nav.topnav .logo {
+    width: 45px;
+    padding: 0;
+  }
+
+  #myNavLinks {
+    top: auto;
+    bottom: 85px;
+    left: 0;
+    width: 100%;
+    border-radius: 20px;
+    z-index: 999;
+    box-shadow: 0px 10px 30px var(--shadow);
+    padding: 1.5rem 0;
+  }
+
+  #myNavLinks.open-animation {
+    animation: island-open 0.4s ease-out forwards;
+  }
+
+  #myNavLinks.close-animation {
+    animation: island-close 0.4s ease-in forwards;
+  }
+
+  .topnav .icon {
+    display: block;
+    font-size: 1.5rem !important;
+    margin-right: 10px;
+  }
+}
+
+@keyframes island-open {
+  from { opacity: 0; transform: translateY(20px); pointer-events: none; }
+  to { opacity: 1; transform: translateY(0); pointer-events: auto; }
+}
+
+@keyframes island-close {
+  from { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  to { opacity: 0; transform: translateY(20px); pointer-events: none; }
 }
 
 header {
@@ -1304,6 +1357,11 @@ header .scroll {
 @media (max-width: 768px) {
   #about .container {
     flex-direction: column;
+  }
+  
+  #about .right,
+  .skills {
+    animation-name: fadeInUp !important;
   }
 }
 

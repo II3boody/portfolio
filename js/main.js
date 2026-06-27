@@ -336,12 +336,15 @@ toggleDarkMode.addEventListener("click", function () {
 });
 
 function updateTheme() {
+    const mobileTopLogo = document.getElementById("mobile-top-logo-img");
     if (document.body.classList.contains("dark")) {
         logo.src = "imgs/ak-logo-white.webp";
+        if (mobileTopLogo) mobileTopLogo.src = "imgs/ak-logo-white.webp";
         arrow.src = "imgs/arrow-inverted.webp";
         localStorage.setItem("theme", "dark");
     } else {
         logo.src = "imgs/ak-logo-black.webp";
+        if (mobileTopLogo) mobileTopLogo.src = "imgs/ak-logo-black.webp";
         arrow.src = "imgs/arrow.webp";
         localStorage.setItem("theme", "light");
     }
@@ -353,7 +356,9 @@ window.addEventListener("scroll", () => {
     const nav = document.getElementById("myTopnav");
     if (window.scrollY > 120) {
         nav.classList.add("slidedown");
-        document.body.style.paddingTop = "98px";
+        if (window.innerWidth > 767) {
+            document.body.style.paddingTop = "98px";
+        }
     } else {
         nav.classList.remove("slidedown");
         document.body.style.paddingTop = "0px";
@@ -464,7 +469,15 @@ function revealPreloader() {
     if (ring) ring.classList.add('done');
     if (logoImg) logoImg.classList.add('loaded');
     if (tag) tag.classList.add('show');
-    setTimeout(() => document.getElementById('preloader').classList.add('hide'), 1000);
+    
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) preloader.classList.add('hide');
+        
+        // Start animations and counting when preloader is gone
+        counting();
+        initAnimeAnimations();
+    }, 1000);
 }
 
 // ====================== Load Theme & Init ======================
@@ -479,9 +492,6 @@ window.addEventListener("DOMContentLoaded", () => {
     loadProjects().finally(() => {
         setTimeout(revealPreloader, 500);
     });
-
-    counting();
-    initAnimeAnimations();
 });
 
 window.addEventListener('load', () => {
