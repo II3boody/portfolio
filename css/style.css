@@ -329,7 +329,7 @@ img {
 .ml7 {
   position: relative;
   font-weight: 900;
-  font-size: 3.7em;
+  font-size: clamp(1rem, 4vw, 4rem) !important;
 }
 
 .ml7 .text-wrapper {
@@ -931,7 +931,8 @@ nav.slidedown {
     display: none;
   }
 
-  nav.topnav, nav.slidedown {
+  nav.topnav,
+  nav.slidedown {
     position: fixed;
     top: auto !important;
     bottom: 20px !important;
@@ -948,7 +949,8 @@ nav.slidedown {
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  body.dark nav.topnav, body.dark nav.slidedown {
+  body.dark nav.topnav,
+  body.dark nav.slidedown {
     background: rgba(26, 32, 44, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -989,13 +991,31 @@ nav.slidedown {
 }
 
 @keyframes island-open {
-  from { opacity: 0; transform: translateY(20px); pointer-events: none; }
-  to { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
 
 @keyframes island-close {
-  from { opacity: 1; transform: translateY(0); pointer-events: auto; }
-  to { opacity: 0; transform: translateY(20px); pointer-events: none; }
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
 }
 
 header {
@@ -1078,7 +1098,7 @@ header .right-content p {
 
 header .main-heading h1 {
   font-size: 10.5rem;
-  text-transform: capitalize;
+  text-transform: uppercase !important;
   font-weight: 400;
 }
 
@@ -1122,10 +1142,53 @@ header>img {
   position: absolute;
   bottom: -50%;
   width: min(1250px, 100%);
-  left: 40%;
+  left: 50%;
   transform: translateX(-20%);
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .25));
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 18%);
+  mask-image: linear-gradient(to top, transparent 0%, black 18%);
   z-index: 1;
   animation: fadeInUp-forHeader 1s ease-in-out;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  /* Premium modern gradient glow */
+  background: radial-gradient(circle, rgba(120, 119, 198, 0.4), rgba(58, 142, 230, 0.2), transparent 70%);
+  filter: blur(60px);
+
+  right: -120px;
+  bottom: -150px;
+
+  z-index: 0;
+  pointer-events: none;
+
+  /* Smooth pulse animation */
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.05) translate(-10px, -15px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.95) translate(10px, 10px);
+    opacity: 0.8;
+  }
 }
 
 @media (min-width: 540px) and (max-width: 1024px) {
@@ -1358,7 +1421,7 @@ header .scroll {
   #about .container {
     flex-direction: column;
   }
-  
+
   #about .right,
   .skills {
     animation-name: fadeInUp !important;
@@ -1952,4 +2015,98 @@ footer a:hover::before {
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+  margin-top: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-buttons a {
+  text-decoration: none;
+}
+
+.main-btn,
+.second-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 15px 34px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  border-radius: 50px;
+
+  transition: all .35s ease;
+  cursor: pointer;
+}
+
+/* Download CV */
+
+.main-btn {
+  background: var(--text-color);
+  color: var(--bg-white);
+  border: 2px solid var(--text-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+}
+
+.main-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .25);
+  background: transparent;
+  color: var(--text-color);
+}
+
+/* Contact */
+
+.second-btn {
+  background: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+}
+
+.second-btn:hover {
+  background: var(--text-color);
+  color: var(--bg-white);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .2);
+}
+
+/* Mobile Break For .ml6 text */
+.mobile-break {
+  display: none;
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+
+  .mobile-break {
+    display: block;
+  }
+
+  .ml6 .bullet {
+    display: none !important;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .main-btn,
+  .second-btn {
+
+    width: 100%;
+    max-width: 260px;
+
+    padding: 14px 24px;
+  }
+
 }

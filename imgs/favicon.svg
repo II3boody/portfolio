@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d7d7d7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="128" height="128" rx="28" fill="#0f0f0f"/>
+
+  <!-- Letter A -->
+  <path
+    d="M30 98
+       L56 28
+       H72
+       L98 98
+       H82
+       L76 82
+       H52
+       L46 98
+       Z
+
+       M57 69
+       H71
+       L64 48
+       Z"
+    fill="url(#g)"/>
+
+  <!-- Letter K -->
+  <path
+    d="M76 28
+       H88
+       V57
+       L103 28
+       H116
+       L98 61
+       L118 98
+       H105
+       L89 68
+       V98
+       H76
+       Z"
+    fill="#ffffff"/>
+
+</svg>

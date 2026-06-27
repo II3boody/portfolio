@@ -405,7 +405,9 @@ function initAnimeAnimations() {
     if (ml6) {
         const textWrapper = ml6.querySelector('.letters');
         if (textWrapper) {
-            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+            let text = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+            text = text.replace(/<span class='letter'>•<\/span>/g, "<span class='letter bullet'>•</span><br class='mobile-break'>");
+            textWrapper.innerHTML = text;
         }
         anime.timeline({ loop: true })
             .add({
@@ -469,16 +471,21 @@ function revealPreloader() {
     if (ring) ring.classList.add('done');
     if (logoImg) logoImg.classList.add('loaded');
     if (tag) tag.classList.add('show');
-    
+
     setTimeout(() => {
         const preloader = document.getElementById('preloader');
         if (preloader) preloader.classList.add('hide');
-        
+
         // Start animations and counting when preloader is gone
         counting();
         initAnimeAnimations();
     }, 1000);
 }
+
+
+// ====================== Date ======================
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 // ====================== Load Theme & Init ======================
 window.addEventListener("DOMContentLoaded", () => {
